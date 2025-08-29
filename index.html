@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .question {
+            margin-bottom: 40px;
+            font-size: 1.15em;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: #f5f5fa;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #0001;
+            padding: 24px 8px 24px 8px;
+        }
+        .question label {
+            font-size: 1em;
+        }
+        .question input[type="radio"] {
+            transform: scale(1.3);
+            margin: 0 8px 0 0;
+        }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        #results { margin-top: 30px; }
+        @media (max-width: 700px) {
+            .question { font-size: 1.1em; padding: 15px 2px; }
+        }
+    </style>
+</head>
+<body>
+    <form id="quizForm">
+                <div class="question" id="question1">
+                    <div id="plot1" style="width:520px;height:370px;max-width:100%;margin:0 auto 20px auto;"></div>
+                    <label>1. What is the slope of the line shown?</label><br>
+                    <input type="radio" id="q1a" name="q1" value="positive">
+                    <label for="q1a">Positive</label><br>
+                    <input type="radio" id="q1b" name="q1" value="negative">
+                    <label for="q1b">Negative</label><br>
+                    <input type="radio" id="q1c" name="q1" value="zero">
+                    <label for="q1c">Zero</label><br>
+                    <input type="radio" id="q1d" name="q1" value="undefined">
+                    <label for="q1d">Undefined</label>
+                </div>
+                <div id="solution1" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+                    <strong>Solution:</strong>
+                    <div>The slope of a line in the form y = mx + b is the coefficient of x. Here, m = 2, which is positive. So the slope is positive.</div>
+                </div>
+                <div class="question" id="question2">
+                    <div id="plot2" style="width:520px;height:370px;max-width:100%;margin:0 auto 20px auto;"></div>
+                    <label>2. What is the slope of the line shown?</label><br>
+                    <input type="radio" id="q2a" name="q2" value="positive">
+                    <label for="q2a">Positive</label><br>
+                    <input type="radio" id="q2b" name="q2" value="negative">
+                    <label for="q2b">Negative</label><br>
+                    <input type="radio" id="q2c" name="q2" value="zero">
+                    <label for="q2c">Zero</label><br>
+                    <input type="radio" id="q2d" name="q2" value="undefined">
+                    <label for="q2d">Undefined</label>
+                </div>
+                <div id="solution2" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+                    <strong>Solution:</strong>
+                    <div>The line x = 5 is a vertical line. The slope of a vertical line is undefined.</div>
+                </div>
+                <div class="question" id="question3">
+                    <div id="plot3" style="width:520px;height:370px;max-width:100%;margin:0 auto 20px auto;"></div>
+                    <label>3. What is the equation of the line shown?</label><br>
+                    <input type="radio" id="q3a" name="q3" value="y=-2x+5">
+                    <label for="q3a">y = -2x + 5</label><br>
+                    <input type="radio" id="q3b" name="q3" value="y=2x+5">
+                    <label for="q3b">y = 2x + 5</label><br>
+                    <input type="radio" id="q3c" name="q3" value="y=-2x-5">
+                    <label for="q3c">y = -2x - 5</label><br>
+                    <input type="radio" id="q3d" name="q3" value="y=2x-5">
+                    <label for="q3d">y = 2x - 5</label>
+                </div>
+                <div id="solution3" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+                    <strong>Solution:</strong>
+                    <div>The slope is -2 and the line passes through (1, 3). Using y = mx + b, 3 = -2(1) + b → b = 5. So the equation is y = -2x + 5.</div>
+                </div>
+        <div class="question" id="question4">
+            <label>4. What is the slope of the line shown?</label><br>
+            <div id="plot4" style="width:520px;height:370px;max-width:100%;margin:0 auto 20px auto;"></div>
+            <input type="radio" id="q4a" name="q4" value="3">
+            <label for="q4a">3</label><br>
+            <input type="radio" id="q4b" name="q4" value="-3">
+            <label for="q4b">-3</label><br>
+            <input type="radio" id="q4c" name="q4" value="1/3">
+            <label for="q4c">1/3</label><br>
+            <input type="radio" id="q4d" name="q4" value="-1/3">
+            <label for="q4d">-1/3</label>
+        </div>
+        <div id="solution4" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+            <strong>Solution:</strong>
+            <div>The slope is (6-0)/(2-0) = 3. So the answer is 3.</div>
+        </div>
+
+
+        <div class="question" id="question5">
+            <label>5. Is the point (2, 7) on the line shown?</label><br>
+            <div id="plot5" style="width:520px;height:370px;max-width:100%;margin:0 auto 20px auto;"></div>
+            <input type="radio" id="q5a" name="q5" value="yes">
+            <label for="q5a">Yes</label><br>
+            <input type="radio" id="q5b" name="q5" value="no">
+            <label for="q5b">No</label>
+        </div>
+        <div id="solution5" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+            <strong>Solution:</strong>
+            <div>Plug x = 2 into y = 2x + 3: y = 2(2) + 3 = 7. So (2, 7) is on the line. The answer is Yes.</div>
+        </div>
+        <button type="submit" style="margin:40px auto 0 auto; display:block;">Submit Quiz</button>
+            </form>
+        </div>
+        <div id="solution2" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+            <strong>Solution:</strong>
+            <div>The line x = 5 is a vertical line. The slope of a vertical line is undefined.</div>
+        </div>
+        <div id="solution3" style="display:none; margin-top:15px; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+            <strong>Solution:</strong>
+            <div>The slope is -2 and the line passes through (1, 3). Using y = mx + b, 3 = -2(1) + b → b = 5. So the equation is y = -2x + 5.</div>
+        </div>
+    </form>
+    <div id="results"></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
